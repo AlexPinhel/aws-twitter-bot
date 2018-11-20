@@ -37,7 +37,7 @@ Interact with AWS environments and twitter through Python:
 10. Deploy with Alias in template.yaml in order to update the code.
 11. If you do some code update, copy code only in build folder and redo sam package and sam deploy
 
-We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:
+**We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:**
 
 12. Enable tracing with X-ray. Could do in Lambda console or sam file.
 13. Import X-ray sdk in your project
