@@ -12,30 +12,30 @@ Globals:
 
 Resources:
 
-    TwitterPollerFunction:
-        Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    RetweetFunction:
+        Type: AWS::Serverless::Function 
         Properties:
             CodeUri: build/
             Handler: twitterRetweet.lambda_handler
             Runtime: python3.6
             AutoPublishAlias: live
-            Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+            Environment: 
                 Variables:
                     TweetSearchString: 'AWS Lambda'
             Policies:
                 - CloudWatchPutMetricPolicy: {}
             Tracing: Active
             Events:
-                TwitterPollerEvent:
+                RetweetEvent:
                     Type: Schedule
                     Properties:
                         Schedule: rate(5 minutes)
 
 Outputs:
-    TwitterPollerFunction:
-      Description: "TwitterPoller Lambda Function ARN"
-      Value: !GetAtt TwitterPollerFunction.Arn
+    RetweetFunction:
+      Description: "Retweet Lambda Function ARN"
+      Value: !GetAtt RetweetFunction.Arn
 
-    TwitterPollerFunctionIamRole:
+    RetweetFunctionIamRole:
       Description: "Implicit IAM Role created for TwitterPoller function"
-      Value: !GetAtt TwitterPollerFunctionRole.Arn
+      Value: !GetAtt RetweetFunctionRole.Arn
