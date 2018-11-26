@@ -41,7 +41,7 @@ hello_World/
 14. Patch_all() will help to patch all boto3 and managed libraries
 13. Enable some sub-segment in the code if you want more details.
 
-Sample of instrumented function in the repository.
+Sample of instrumented function in the folder [instrumented_file](instrumented_file)
 
 
 # Appendix
