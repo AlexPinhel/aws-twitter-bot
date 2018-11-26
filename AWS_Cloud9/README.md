@@ -8,7 +8,7 @@ In this section, we will create a AWS Cloud9 (C9) environment and configure it t
 
 2. Choose **Oregon** region. Please ensure you are in the correct AWS region.
 
-  	![Cloud9 Env](../images/image_c9.png)
+  	![Cloud9 Env](../images/c9.png)
 
 3. Click **Create Environment**.
 
@@ -16,7 +16,7 @@ In this section, we will create a AWS Cloud9 (C9) environment and configure it t
 
 5. Under **Environmnent Settings**, choose **Create a new instance for environment (EC2)** and **Instance type** as **t2.micro**.
 
-  	![Cloud9 Instance](../images/image-c9-instance.png)
+  	![Cloud9 Instance](../images/c9_instance.png)
 
 6. Click **Next Step** and click **Create Environment**. This will take 3-5 minutes to create the environment.
 
