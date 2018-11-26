@@ -29,8 +29,10 @@ hello_World/
 8. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically
 ```sam deploy --template-file packaged.yaml --stack-name twitterpollerretweeter --capabilities CAPABILITY_IAM```
 9. Let's update the rights in IAM role created for the Lambda and allow access to KMS, SSM parameters. check the samples in folder [policies] (https://github.com/kx74/aws-twitter-bot/tree/master/Bot1/policies) to give access to SSM and KMS
-10. Deploy with Alias in template.yaml in order to update the code.
-11. If you do some code update, copy code only in build folder and redo sam package and sam deploy
+10. Make sure the Trigger event of the lambda is configured with your poller event
+11. Create a test event if you want to test your lambda without waiting for the trigger
+12. Check your twitter account and see the retweets
+13. If you do some code update, copy code only in build folder and redo sam package and sam deploy
 
 **We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:**
 
