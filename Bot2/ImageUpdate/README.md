@@ -14,14 +14,14 @@
     4. Update the code with the name of the SSM variables
     5. Update requirements.txt with needed libraries (sample provided in this repository)
     6. ```pip install -r requirements.txt -t build/```
-    7. Get the pillow.zip archive in the folder upper and decompress it in your build/ folder to have pillow.\ 
+    7. Get the pillow.zip archive in the folder upper and decompress it in your build/ folder to have pillow. \ 
     (The library is used to manipulate images.
-    8. Copy your python file in build folder:\ 
+    8. Copy your python file in build folder: \ 
     ```cp hello_world/*.py build/```
     
-7. Package the Lambda and put it in your s3 bucket for deployment:
+7. Package the Lambda and put it in your s3 bucket for deployment: \
 ```sam package --template-file template.yaml --output-template-file bot2-packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
-8. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically
+8. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically \
 ```sam deploy --template-file packaged.yaml --stack-name bot2-imageupdate --capabilities CAPABILITY_IAM```
 9. Let's assign a specific role with access to KMS, SSM, Rekognition and SQS (samples available in folder policies)
 10. Configure the trigger of the Lambda to be SQS on queue defined in the Poller.
