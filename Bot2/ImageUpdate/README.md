@@ -1,6 +1,6 @@
 # ImageUpdater
 
-**Bot 2: Make a bot who update the image based on keywords and retweet the image updated**
+## Steps
 1. Gather the twitter credentials, generated in the pre requisites
 2. Look at the 2 lambda functions code available in this repository.
 3. Reuse or create a KMS key (used to encrypt twitter credentials)
