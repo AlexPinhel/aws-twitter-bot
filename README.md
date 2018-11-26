@@ -38,5 +38,5 @@ Interact with AWS environments and twitter through Python:
 ## Steps:
 0. Choose your bot based on your knowledge of AWS environment and twitter
 1. [Setting up AWS Cloud 9 Development Environment](./AWS_Cloud9/README.md)
-2. [Bot1](./Bot1/README.md)
-3. [Bot2](./Bot2/README.md)
+2. [Bot 1](./Bot1/README.md)
+3. [Bot 2](./Bot2/README.md)
