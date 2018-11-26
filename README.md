@@ -8,5 +8,9 @@ Twitter bot based on Lambda
   * Create your twitter application
 
 Interact with AWS environments and twitter through Python:
-* Have Boto3, tweepy, SAM CLI installed to package and deploy the application. 
+* Have AWS CLI and SAM CLI installed to package and deploy the application. 
   * SAM CLI: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-quick-start.html
+* To upgrade to last version of AWS CLI:
+  * ```pip install awscli --upgrade --user```
+* To upgrade to last version of SAM CLI:
+  * ```pip install aws-sam-cli --user```
