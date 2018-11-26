@@ -1,40 +1,31 @@
 # ImageUpdater
 
-For this bot, we will use python 2.7 (mainly due to the image library)
-
-**Bot 1: Make a bot who retweet automatically the tweets based on keywords**
+**Bot 2: Make a bot who update the image based on keywords and retweet the image updated**
 1. Gather the twitter credentials, generated in the pre requisites
 2. Look at the 2 lambda functions code available in this repository.
-3. Create a KMS key (used to encrypt twitter credentials)
-4. Create 4 SSM parameters with twitter credentials and use the KMS key
-5. Create an S3 bucket to host your code package
+3. Reuse or create a KMS key (used to encrypt twitter credentials)
+4. Reuse or create 4 SSM parameters with twitter credentials and use the KMS key
+5. Reuse or create an S3 bucket to host your code package
 6. Create the lambda package
     1. Use SAM and init a project
-```sam init --runtime python2.7```
+    ```sam init --runtime python2.7```
     2. Update template.yaml with the one in this repository
-    3. Copy/paste the code in app.py
-    4. Update app.py with the name of the SSM variables
+    3. Copy/paste the code in a file twitterUpdateImage.py
+    4. Update the code with the name of the SSM variables
     5. Update requirements.txt with needed libraries (sample provided in this repository)
     6. Package code, first get the packages updated
-    7. ```pip install -r requirements.txt -t hello_world/build/```
-    8. ```cp hello_world/*.py hello_world/build/```
+    7. ```pip install -r requirements.txt -t build/```
+    8. ```cp hello_world/*.py build/```
     
 7. Package the Lambda and put it in your s3 bucket for deployment:
-```sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
+```sam package --template-file template.yaml --output-template-file bot2-packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
 8. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically
-```sam deploy --template-file packaged.yaml --stack-name twitterpollerretweeter --capabilities CAPABILITY_IAM```
-9. Let's update the rights in IAM role created for the Lambda and allow access to KMS, SSM parameters
-10. Deploy with Alias in template.yaml in order to update the code.
-11. If you do some code update, copy code only in build folder and redo sam package and sam deploy
+```sam deploy --template-file packaged.yaml --stack-name bot2-imageupdate --capabilities CAPABILITY_IAM```
+9. Let's assign a specific role with access to KMS, SSM, Rekognition and SQS (samples available in folder policies)
+10. Configure the trigger of the Lambda to be SQS on queue defined in the Poller.
+11. Create a tweet with the keyword #AWSNinja or your if you udpated it
+12. Look at the results, the image should be updated.
 
-**We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:**
-
-12. Enable tracing with X-ray. Could do in Lambda console or sam file.
-13. Import X-ray sdk in your project
-14. Patch_all() will help to patch all boto3 and managed libraries
-13. Enable some sub-segment in the code if you want more details.
-
-Sample of instrumented function in the repository.
 
 # Appendix
 
@@ -52,6 +43,3 @@ pip install -r requirements.txt
 
 
 **NOTE:** You can find more information about Virtual Environment at [Python Official Docs here](https://docs.python.org/3/tutorial/venv.html). Alternatively, you may want to look at [Pipenv](https://github.com/pypa/pipenv) as the new way of setting up development workflows
-## AWS CLI commands
-
-AWS CLI commands to package, deploy and describe outputs defined within the cloudformation stack:
