@@ -1,6 +1,6 @@
 # Poller
 
-**Phase 1: Let's check twitter every 5 minutes to gather tweets with specific keywords and images**
+## Steps
 1. Gather the twitter credentials, generated in the pre requisites
 2. Look at the 2 lambda functions code available in this repository.
 3. Reuse a KMS key or create one (used to encrypt twitter credentials)
