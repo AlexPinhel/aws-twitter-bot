@@ -13,9 +13,11 @@
     3. Copy/paste the code in a file twitterUpdateImage.py
     4. Update the code with the name of the SSM variables
     5. Update requirements.txt with needed libraries (sample provided in this repository)
-    6. Package code, first get the packages updated
-    7. ```pip install -r requirements.txt -t build/```
-    8. ```cp hello_world/*.py build/```
+    6. ```pip install -r requirements.txt -t build/```
+    7. Get the pillow.zip archive in the folder upper and decompress it in your build/ folder to have pillow.\ 
+    (The library is used to manipulate images.
+    8. Copy your python file in build folder:\ 
+    ```cp hello_world/*.py build/```
     
 7. Package the Lambda and put it in your s3 bucket for deployment:
 ```sam package --template-file template.yaml --output-template-file bot2-packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
