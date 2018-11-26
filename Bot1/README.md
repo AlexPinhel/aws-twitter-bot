@@ -16,8 +16,8 @@ hello_World/
 6. Create the lambda package
     1. Use SAM and init a project
 ```sam init --runtime python3.6```
-    2. Update template.yaml
-    3. Copy/paste the code in app.py
+    2. Update template.yaml with the one in this repository
+    3. Copy/paste the code in app.py or create a new file with the code of this repository in folder hello_world
     4. Update app.py with the name of the SSM variables
     5. Update requirements.txt with needed libraries (sample provided in this repository)
     6. In the hello_world directory, package code, first get the packages updated
