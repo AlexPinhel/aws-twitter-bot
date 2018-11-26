@@ -51,6 +51,8 @@ def defineMaxID():
     else:
         next_max_id = 0
         #dateOfLastTweet = datefortweet
+        tweet_list = ''
+        ssm.put_parameter(Name='day-tweet-processed', Type='StringList', Value=tweet_list, Overwrite=True)
         os.environ['DateOfLastTweet'] = str(dateOfLastTweet)
     print("MaxID: %i" % next_max_id)
     
@@ -58,8 +60,8 @@ def defineMaxID():
 
 def configureSearch(id_tweet):
     print("ConfigureSearch: "+ str(id_tweet))
-    #now = datetime.datetime.now()
-    #datefortweet = datetime.date(now.year, now.month, now.day)
+    now = datetime.datetime.now()
+    datefortweet = datetime.date(now.year, now.month, now.day)
 
     twSOrder = TwitterSearchOrder() # create a TwitterSearchOrder object
     #twSOrder.set_keywords(['from:YodaBotter', 'to:YodaBotter'], or_operator = True)
@@ -67,7 +69,7 @@ def configureSearch(id_tweet):
     #twSOrder.set_language('en') # we want to see English tweets only
     twSOrder.set_include_entities(True) # and get all the entities incl. Media
     print("Search: " + twSOrder.create_search_url())
-    #twSOrder.set_since(datefortweet)
+    twSOrder.set_since(datefortweet)
 
     #if(id_tweet != 0):
     #    twSOrder.set_max_id(id_tweet)
