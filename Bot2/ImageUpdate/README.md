@@ -22,10 +22,16 @@
 5. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically \
 ```sam deploy --template-file packaged.yaml --stack-name bot2-imageupdate --capabilities CAPABILITY_IAM```
 6. Create a new IAM role with the following rights: Lambda Basic Execution, add also inline policies as provided in the folder [policies](../IAM_policies/) for SQS, Rekognition, KMS and SSM rights and replace the one generated automatically.
-7. Configure the trigger of the Lambda to be Amazon SQS on the queue defined in the Poller.
-8. Create a tweet with the keyword #AWSNinja or the one you want if you udpated it
-9. Let's tweet with an image and the keyword chosen.
-10. After processing, you should have a new tweet with the image updated.
+7. Go to the Lambda Console, configure the trigger of the Lambda to be Amazon SQS on the queue defined in the Poller.
+8. Create a test event to check everything is ok. Click on Test at the top of the page. Let the value as it is and give a name. Test. If you have errors with module import, please check the following:
+    1. What is the name of your main python file (app.py or else)
+    2. Check if the template.yaml the name of the Handler align the first part to the name of your python file ```Handler: twitterUpdateImage.lambda_handler```
+    3. Check the codeURI: the start point is where your template.yaml resides. ```CodeUri: build/```
+    4. Make the appropriate updates and do again steps 3 and 4 and check if 6 is still there.
+    5. Redo the test
+9. Create a tweet with the keyword #AWSNinja or the one you want if you udpated it
+10. Let's tweet with an image and the keyword chosen.
+11. After processing, you should have a new tweet with the image updated.
 
 
 # Appendix
