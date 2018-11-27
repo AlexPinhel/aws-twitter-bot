@@ -54,7 +54,9 @@ Interact with AWS environments and twitter through Python:
   - ```pip install aws-sam-cli --user```
 
 ## Steps:
-0. Choose your bot based on your knowledge of AWS environment and twitter
-1. [Setting up AWS Cloud 9 Development Environment](./AWS_Cloud9/README.md)
-2. [Bot 1](./Bot1/README.md)
-3. [Bot 2](./Bot2/README.md)
+
+0. Define the bot you want to do (the simple is Bot 1)
+1. [Manage your Twitter credentials in AWS for use in lambdas](./Twitter_credentials/README.md)
+2. [Setting up AWS Cloud 9 Development Environment](./AWS_Cloud9/README.md)
+3. [Bot 1](./Bot1/README.md)
+4. [Bot 2](./Bot2/README.md)
