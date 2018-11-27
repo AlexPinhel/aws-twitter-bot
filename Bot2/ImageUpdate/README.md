@@ -1,12 +1,10 @@
 # ImageUpdater
 
 ## Steps
-1. Gather the twitter credentials, generated in the pre requisites
-2. Look at the 2 lambda functions code available in this repository.
-3. Reuse or create a KMS key (used to encrypt twitter credentials)
-4. Reuse or create 4 SSM parameters with twitter credentials and use the KMS key
-5. Reuse or create an S3 bucket to host your code package
-6. Create the lambda package
+
+1. Reuse or create an S3 bucket to host your code package
+2. Look at the Lambda code in this repository
+3. Create the lambda package
     1. Use SAM and init a project
     ```sam init --runtime python2.7```
     2. Update template.yaml with the one in this repository
@@ -19,14 +17,15 @@
     8. Copy your python file in build folder: \ 
     ```cp hello_world/*.py build/```
     
-7. Package the Lambda and put it in your s3 bucket for deployment: \
+4. Package the Lambda and put it in your s3 bucket for deployment: \
 ```sam package --template-file template.yaml --output-template-file bot2-packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
-8. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically \
+5. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically \
 ```sam deploy --template-file packaged.yaml --stack-name bot2-imageupdate --capabilities CAPABILITY_IAM```
-9. Let's assign a specific role with access to KMS, SSM, Rekognition and SQS (samples available in folder policies)
-10. Configure the trigger of the Lambda to be SQS on queue defined in the Poller.
-11. Create a tweet with the keyword #AWSNinja or your if you udpated it
-12. Look at the results, the image should be updated.
+6. Create a new IAM role with the following rights: Lambda Basic Execution, add also inline policies as provided in the folder [policies](../IAM_policies/) for SQS, Rekognition, KMS and SSM rights and replace the one generated automatically.
+7. Configure the trigger of the Lambda to be Amazon SQS on the queue defined in the Poller.
+8. Create a tweet with the keyword #AWSNinja or the one you want if you udpated it
+9. Let's tweet with an image and the keyword chosen.
+10. After processing, you should have a new tweet with the image updated.
 
 
 # Appendix
