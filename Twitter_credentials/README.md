@@ -22,7 +22,7 @@ During this session, we will leverage AWS Systems Manager as we have multiple pa
     - twitter-access-token-secret
     - twitter-consumer-key
     - twitter-consumer-secret
-5. Create additional parameters not encrypted, these will be used in the lambdas:
+5. Only for Bot 2, create additional parameters not encrypted, these will be used in the lambdas:
     - twitter-max-id as String, put '' as value.
-    - Only for Bot 2, day-tweet-processed as StringList
+    - day-tweet-processed as StringList
 
