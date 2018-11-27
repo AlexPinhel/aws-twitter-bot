@@ -70,10 +70,7 @@ def configureSearch(id_tweet):
     twSOrder.set_include_entities(True) # and get all the entities incl. Media
     print("Search: " + twSOrder.create_search_url())
     twSOrder.set_since(datefortweet)
-
-    #if(id_tweet != 0):
-    #    twSOrder.set_max_id(id_tweet)
-
+    
     return twSOrder
 
 def build_send_sqs_message(screenName, tweetBody, mediaID, mediaURL):
