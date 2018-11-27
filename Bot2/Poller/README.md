@@ -16,7 +16,7 @@ zip -r twitterPoller.zip .
 ```
 5. Create a lambda function from scratch
 6. Upload the zip file for the lambda
-7. Create a new IAM role with the following rights: Lambda Basic Execution, add also inline policies as provided in the folder [policies](../IAM_policies/) for KMS and SSM rights.
+7. Create a new IAM role with the following rights: Lambda Basic Execution, add also inline policies as provided in the folder [policies](../IAM_policies/) for SQS, KMS and SSM rights.
 8. Configure 2 environment variables: 
     - sqsMessage to let lambda knows which queue to send messages to, put the value to an existing sqs Queue created in the previous steps.
     - DateOfLastTweet
