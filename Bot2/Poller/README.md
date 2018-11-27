@@ -1,30 +1,27 @@
 # Poller
 
 ## Steps
-1. Gather the twitter credentials, generated in the pre requisites
-2. Look at the 2 lambda functions code available in this repository.
-3. Reuse a KMS key or create one (used to encrypt twitter credentials)
-4. Reuse or create 4 SSM parameters with twitter credentials and use the KMS key
-5. Reuse or create an S3 bucket to host your code package
-6. Get the lambda code
-7. Let's create a folder with the different libraries described in requirements.txt
+
+1. Look at the 2 lambda functions code available in this repository.
+2. Get the lambda code
+3. Let's create a folder with the different libraries described in requirements.txt
 ```bash
 pip install -r requirements.txt -t build/
 cp twitterPoller.py build/
 ```
-8. Create zip file for our lambdas with all the libraries needed and the code source:
+4. Create zip file for our lambdas with all the libraries needed and the code source:
 ```bash
 cd build/
 zip -r twitterPoller.zip .
 ```
-9. Create a lambda function from scratch
-10. Upload the zip file for the lambda
-11. Put a IAM role allowing to send message to SQS
-12. Configure 2 environment variables: 
-    - sqsMessage to let lambda knows which queue to send messages to, put the value to an existing sqs Queue.
+5. Create a lambda function from scratch
+6. Upload the zip file for the lambda
+7. Create a new IAM role with the following rights: Lambda Basic Execution, add also inline policies as provided in the folder [policies](../IAM_policies/) for KMS and SSM rights.
+8. Configure 2 environment variables: 
+    - sqsMessage to let lambda knows which queue to send messages to, put the value to an existing sqs Queue created in the previous steps.
     - DateOfLastTweet
-13. Create a test event, empty to test your function.
-14. If everything is ok, you could create a CloudWatch event trigger with a frequency of 5 mins
+9. Create a test event, empty to test your function.
+10. If everything is ok, you could create a CloudWatch event trigger with a frequency of 5 mins
 
 # Appendix
 
