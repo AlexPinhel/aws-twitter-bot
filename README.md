@@ -24,9 +24,9 @@ This workshop requires:
 - Knowledge of AWS Lambda, Amazon SQS will be an added advantage.
 - An active twitter account
 
-## Enable your developer twitter account
-[developer twitter account](https://developer.twitter.com/en/account/get-started)
-- For this, you need a valid phone number (verified through a text message with verification code)
+### Enable your developer twitter account
+[Developer twitter account - get started](https://developer.twitter.com/en/account/get-started)
+- To enable your account, you need a valid phone number (verified through a text message with verification code)
 - Fill the Account details (personal use, country of operation)
 - Fill the use case details (categories, description with 300 characters minimum)
 - Sample:
@@ -45,7 +45,7 @@ This workshop requires:
 ![Twitter App creation](./images/twitter_app_creation.png)
 
 
-## Resources for AWS CLI and SAM CLI:
+### Resources for AWS CLI and SAM CLI:
 Interact with AWS environments and twitter through Python:
 - SAM CLI: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-quick-start.html
 - To upgrade to last version of AWS CLI:
