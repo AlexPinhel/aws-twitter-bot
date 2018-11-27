@@ -27,15 +27,21 @@ hello_World/
 5. Let's update the rights in IAM role created for the Lambda and allow access to KMS, SSM parameters. check the samples in folder [policies](policies) to give access to SSM and KMS. 
 6. Make sure the Trigger event of the lambda is configured with your poller event. Go to Lambda Console, put the trigger to Cloudwatch Events. Configure the Event with the rule created during the creation.
 7. Create a test event if you want to test your lambda without waiting for the trigger
-8. Check your twitter account and see the retweets
-9. If you do some code update, copy code only in build folder and redo sam package and sam deploy
+8. If you have errors with module import, please check the following:
+    1. What is the name of your main python file (app.py or else)
+    2. Check if the template.yaml the name of the Handler align the first part to the name of your python file ```Handler: twitterRetweet.lambda_handler```
+    3. Check the codeURI: the start point is where your template.yaml resides. ```CodeUri: build/```
+    4. Make the appropriate updates and do again steps 3 and 4 and check if 6 is still there.
+    5. Redo the test
+9. Check your twitter account and see the retweets
+10. If you do some code update, copy code only in build folder and redo sam package and sam deploy
 
 **We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:**
 
-10. Enable tracing with X-ray. Could do in Lambda console or sam file.
-11. Import X-ray sdk in your project
-12. Patch_all() will help to patch all boto3 and managed libraries
-13. Enable some sub-segment in the code if you want more details.
+11. Enable tracing with X-ray. Could do in Lambda console or sam file.
+12. Import X-ray sdk in your project
+13. Patch_all() will help to patch all boto3 and managed libraries
+14. Enable some sub-segment in the code if you want more details.
 
 Sample of instrumented function in the folder [instrumented_file](instrumented_file)
 
