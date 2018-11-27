@@ -23,11 +23,13 @@ This workshop requires:
 - Knowledge of Python will be an added advantage.
 - Knowledge of AWS Lambda, Amazon SQS will be an added advantage.
 - An active twitter account
-- Enable your [developer twitter account](https://developer.twitter.com/en/account/get-started)
-    - For this, you need a valid phone number (verified through a text message with verification code)
-    - Fill the Account details (personal use, country of operation)
-    - Fill the use case details (categories, description with 300 characters minimum)
-    - Sample:
+
+## Enable your developer twitter account
+[developer twitter account](https://developer.twitter.com/en/account/get-started)
+- For this, you need a valid phone number (verified through a text message with verification code)
+- Fill the Account details (personal use, country of operation)
+- Fill the use case details (categories, description with 300 characters minimum)
+- Sample:
 ```
 1. I am using twitter API to look for tweets related to technological topics or images 
 2. I plan to analyze tweets to be able to thank automatically people and also to detect trends in the images, text provided.
@@ -43,13 +45,13 @@ This workshop requires:
 ![Twitter App creation](./images/twitter_app_creation.png)
 
 
-**Resources for AWS CLI and SAM CLI:**
+## Resources for AWS CLI and SAM CLI:
 Interact with AWS environments and twitter through Python:
-* SAM CLI: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-quick-start.html
-* To upgrade to last version of AWS CLI:
-  * ```pip install awscli --upgrade --user```
-* To upgrade to last version of SAM CLI:
-  * ```pip install aws-sam-cli --user```
+- SAM CLI: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-quick-start.html
+- To upgrade to last version of AWS CLI:
+  - ```pip install awscli --upgrade --user```
+- To upgrade to last version of SAM CLI:
+  - ```pip install aws-sam-cli --user```
 
 ## Steps:
 0. Choose your bot based on your knowledge of AWS environment and twitter
