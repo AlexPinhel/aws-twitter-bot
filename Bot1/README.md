@@ -8,12 +8,8 @@ hello_World/
 **NOTE**: It is recommended to use a Python Virtual environment to separate your application development from  your system Python installation.
 
 **Bot 1: Make a bot who retweet automatically the tweets based on keywords**
-1. Gather the twitter credentials, generated in the pre requisites
-2. Look at the lambda code available in this repository.
-3. Create a KMS key (used to encrypt twitter credentials)
-4. Create 4 SSM parameters with twitter credentials and use the KMS key
-5. Create an S3 bucket to host your code package
-6. Create the lambda package
+1. Create an S3 bucket to host your code package
+2. Create the lambda package
     1. Use SAM and init a project
 ```sam init --runtime python3.6```
     2. Update template.yaml with the one in this repository
@@ -24,21 +20,21 @@ hello_World/
     ```pip install -r requirements.txt -t build/```\
     ```cp hello-world/*.py build/```
     
-7. Package the Lambda and put it in your s3 bucket for deployment:\
+3. Package the Lambda and put it in your s3 bucket for deployment:\
 ```sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
-8. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically\
+4. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically\
 ```sam deploy --template-file packaged.yaml --stack-name twitterpollerretweeter --capabilities CAPABILITY_IAM```
-9. Let's update the rights in IAM role created for the Lambda and allow access to KMS, SSM parameters. check the samples in folder [policies](policies) to give access to SSM and KMS
-10. Make sure the Trigger event of the lambda is configured with your poller event
-11. Create a test event if you want to test your lambda without waiting for the trigger
-12. Check your twitter account and see the retweets
-13. If you do some code update, copy code only in build folder and redo sam package and sam deploy
+5. Let's update the rights in IAM role created for the Lambda and allow access to KMS, SSM parameters. check the samples in folder [policies](policies) to give access to SSM and KMS. 
+6. Make sure the Trigger event of the lambda is configured with your poller event
+7. Create a test event if you want to test your lambda without waiting for the trigger
+8. Check your twitter account and see the retweets
+9. If you do some code update, copy code only in build folder and redo sam package and sam deploy
 
 **We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:**
 
-12. Enable tracing with X-ray. Could do in Lambda console or sam file.
-13. Import X-ray sdk in your project
-14. Patch_all() will help to patch all boto3 and managed libraries
+10. Enable tracing with X-ray. Could do in Lambda console or sam file.
+11. Import X-ray sdk in your project
+12. Patch_all() will help to patch all boto3 and managed libraries
 13. Enable some sub-segment in the code if you want more details.
 
 Sample of instrumented function in the folder [instrumented_file](instrumented_file)
