@@ -28,6 +28,7 @@ This workshop requires:
     - Fill the Account details (personal use, country of operation)
     - Fill the use case details (categories, description with 300 characters minimum)
     - Sample:
+```
 1. I am using twitter API to look for tweets related to technological topics or images 
 2. I plan to analyze tweets to be able to thank automatically people and also to detect trends in the images, text provided.
 3. I will be tweeting content when a given content is interesting.
@@ -36,6 +37,7 @@ This workshop requires:
     - Read the terms of service and accept
     - New verification is sent to your email to confirm the developer account
     - Follow the steps to create your application, will be needed to have the credentials 
+```
 
 ![Twitter App creation](./images/twitter_app_creation.png)
 
