@@ -39,11 +39,21 @@ This workshop requires:
 - Finalize your activation   
     - Read the terms of service and accept
     - New verification is sent to your email to confirm the developer account
-    - Follow the steps to create your application, will be needed to have the credentials 
 
-
-![Twitter App creation](./images/twitter_app_creation.png)
-
+## Create your twitter application
+1. Click on create application
+2. Fill the information to give a name and small description (10 words)
+![Twitter App creation fields](./images/1_twitter_create_app.png)
+3. Put a website URL
+4. Check the box for signing in Twitter
+5. Put a callback url (not used) so put the same as your website URL
+![Twitter App creation fields continued](./images/2_twitter_create_app.png)
+6. Put the description text, reuse the one above when you enabled your developer account.
+![Twitter App creation fields continued](./images/3_twitter_createapp.png)
+7. As soon as your application is created, go to the tab named **Keys and tokens**
+8. Generate the access tokens
+![Twitter App tokens](./images/4_create_tokens.png)
+9. These tokens will be used later to authenticate against twitter and make searches, tweets.
 
 ### Resources for AWS CLI and SAM CLI:
 Interact with AWS environments and twitter through Python:
