@@ -25,6 +25,9 @@ hello_World/
 4. Deploy the lambda with a proper stack name and enable IAM capability to create roles automatically\
 ```sam deploy --template-file packaged.yaml --stack-name twitterpollerretweeter --capabilities CAPABILITY_IAM```
 5. Let's update the rights in IAM role created for the Lambda and allow access to KMS, SSM parameters. check the samples in folder [policies](policies) to give access to SSM and KMS. 
+  1. Look at the name of your IAM role assigned to Lambda
+  2. Go to IAM, find the role of your Lambda
+  3. Update the role, adding inline policies to the role based on the policies in the folder above.
 6. Make sure the Trigger event of the lambda is configured with your poller event. Go to Lambda Console, put the trigger to Cloudwatch Events. Configure the Event with the rule created during the creation.
 7. Create a test event if you want to test your lambda without waiting for the trigger
 8. If you have errors with module import, please check the following:
