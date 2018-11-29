@@ -14,11 +14,11 @@ hello_World/
 ```sam init --runtime python3.6```
     2. Update template.yaml with the one in this repository
     3. Copy/paste the code in app.py or create a new file with the code of this repository in folder hello_world
-    4. Update app.py with the name of the SSM variables
-    5. Update requirements.txt with needed libraries (sample provided in this repository)
-    6. In the hello_world directory, package code, first get the packages updated\
-    ```pip install -r requirements.txt -t build/```\
-    ```cp hello-world/*.py build/```
+    4. Update app.py with the name of the SSM variables or reuse [twitterRetweet.py](./hello_world/twitterRetweet.py) in this repository
+    5. Update [requirements.txt](./requirements.txt) with needed libraries (sample provided in this repository)
+    6. In the hello_world directory, package code, first get the packages updated using pip3\
+    ```pip3 install -r requirements.txt -t build/```\
+    ```cp hello_world/*.py build/```
     
 3. Package the Lambda and put it in your s3 bucket for deployment:\
 ```sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket REPLACE_THIS_WITH_YOUR_S3_BUCKET_NAME```
@@ -38,12 +38,12 @@ hello_World/
 
 **We could instrument a bit this function to leverage X-Ray and understand where we are spending the time:**
 
+Sample of instrumented function in the folder [instrumented_file](instrumented_file)
+
 11. Enable tracing with X-ray. Could do in Lambda console or sam file.
 12. Import X-ray sdk in your project
 13. Patch_all() will help to patch all boto3 and managed libraries
 14. Enable some sub-segment in the code if you want more details.
-
-Sample of instrumented function in the folder [instrumented_file](instrumented_file)
 
 
 # Appendix
