@@ -70,3 +70,8 @@ Interact with AWS environments and twitter through Python:
 2. [Setting up AWS Cloud 9 Development Environment](./AWS_Cloud9/README.md)
 3. [Bot 1](./Bot1/README.md)
 4. [Bot 2](./Bot2/README.md)
+
+
+## License Summary
+
+This sample code is made available under a modified MIT license. See the LICENSE file.

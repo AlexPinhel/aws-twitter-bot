@@ -25,6 +25,7 @@ def retweet(api, search, numberOfTweets):
             tweet_id = tweet.id
             print(tweet_id)
             if tweet.lang == "en":
+                print(tweet.body)
                 tweet.retweet()
                 print('Retweeted the tweet')
             else:
